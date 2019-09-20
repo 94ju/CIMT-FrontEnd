@@ -65,4 +65,4 @@ import {
    ]
 })
 
-export class AngularMaterialModule { }
+export class AngularMaterialModule { }  
