@@ -3,21 +3,24 @@
           <mat-card-header>
             <mat-card-title>Register</mat-card-title>
           </mat-card-header>
-          <form action="" class="example-form">
+          <form (submit)="onLogin(loginForm)" #loginForm="ngForm" class="example-form">
               <mat-card-content>
                   <mat-form-field class="example-full-width">
-                      <input matInput placeholder="Username">
+                      <input matInput placeholder="Username" name="username" ngModel #usernameInput="ngModel" required>
+                      <mat-error *ngIf="usernameInput.invalid">Please enter a valid username.</mat-error>
                   </mat-form-field>
-                  <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Email">
+                  <mat-form-field class="example-full-width" >
+                        <input matInput name="email" ngModel type="email" placeholder="E-Mail" #emailInput="ngModel" required email>
+                        <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
                       </mat-form-field>
               
                       <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Password">
+                          <input type="password" name="password" ngModel matInput placeholder="Password" #passwordInput="ngModel" required>
+                          <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
                       </mat-form-field>
                       <mat-form-field class="example-full-width">
                             <mat-label>Choose a role...</mat-label>
-                            <mat-select [(value)]="selected">
+                            <mat-select [(value)]="selected" >
                               <mat-option [value]="roles" *ngFor="let roles of Roles">{{roles}}
                               </mat-option>
                             </mat-select>
