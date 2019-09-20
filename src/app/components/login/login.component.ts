@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,10 @@ export class LoginComponent implements OnInit {
   login(){
     this.route.navigate(['home'])
     console.log("check")
+  }
+  onLogin(form: NgForm) {
+    console.log(form.value);
+    this.route.navigate(['home']);
   }
 
 }
