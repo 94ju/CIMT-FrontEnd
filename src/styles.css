@@ -22,7 +22,7 @@ body {
 }
 
 body {
-  background-image: url('./assets/bac.jpg');
+  /* background-image: url('./assets/bac.jpg'); */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

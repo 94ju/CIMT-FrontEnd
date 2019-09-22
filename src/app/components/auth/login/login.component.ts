@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     }
     //this.authsevice.islogedin=true;
     //console.log(form.value);
-   // this.route.navigate(['home']);
+    this.route.navigate(['home']);
     // console.log("Login com "+this.authsevice.islogedin)
     this.authsevice.loginUser(form.value.email,form.value.password)
   }
