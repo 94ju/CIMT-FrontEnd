@@ -15,8 +15,8 @@
           <form (submit)="onLogin(loginForm)" #loginForm="ngForm" class="example-form">
             <mat-card-content>
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="Username" name="username" ngModel #usernameInput="ngModel" required>
-                <mat-error *ngIf="usernameInput.invalid">Please enter a valid username.</mat-error>
+                <input matInput placeholder="Email" name="email" ngModel #emailInput="ngModel" required>
+                <mat-error *ngIf="emailInput.invalid">Please enter a valid emailname.</mat-error>
               </mat-form-field>
       
               <mat-form-field class="example-full-width">

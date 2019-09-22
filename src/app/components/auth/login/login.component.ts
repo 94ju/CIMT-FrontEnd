@@ -20,10 +20,14 @@ export class LoginComponent implements OnInit {
     console.log("check")
   }
   onLogin(form: NgForm) {
-    this.authsevice.islogedin=true;
-    console.log(form.value);
-    this.route.navigate(['home']);
+    if(form.invalid){
+      return;
+    }
+    //this.authsevice.islogedin=true;
+    //console.log(form.value);
+   // this.route.navigate(['home']);
     // console.log("Login com "+this.authsevice.islogedin)
+    this.authsevice.loginUser(form.value.email,form.value.password)
   }
 
 }
