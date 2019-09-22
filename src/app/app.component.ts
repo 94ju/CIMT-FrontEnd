@@ -11,10 +11,10 @@ export class AppComponent {
   title = 'frontendCIMT';
   constructor(private authService:AuthService){
     //this.islogedin=this.authService.islogedin;
-    console.log("app com "+this.authService.islogedin)
+    // console.log("app com "+this.authService.islogedin)
   }
   islogedin(){
-    console.log("app com is loged "+this.authService.islogedin)
+    // console.log("app com is loged "+this.authService.islogedin)
     return this.authService.islogedin;
   }
 

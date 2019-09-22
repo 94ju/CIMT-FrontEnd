@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     this.authsevice.islogedin=true;
     console.log(form.value);
     this.route.navigate(['home']);
-    console.log("Login com "+this.authsevice.islogedin)
+    // console.log("Login com "+this.authsevice.islogedin)
   }
 
 }
