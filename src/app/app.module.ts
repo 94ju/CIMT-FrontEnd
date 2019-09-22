@@ -9,8 +9,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
-import { VirtualMachineComponent } from './components/virtual-machine/virtual-machine.component';
-import { HttpClientModule} from '@angular/common/http'
+
+import { HttpClientModule} from '@angular/common/http';
+import { VirtualmachinesComponent } from './components/vm/virtualmachines/virtualmachines.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { HttpClientModule} from '@angular/common/http'
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    VirtualMachineComponent
+    VirtualmachinesComponent
   ],
   imports: [
     BrowserModule,
