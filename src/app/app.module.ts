@@ -11,7 +11,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 
 import { HttpClientModule} from '@angular/common/http';
-import { VirtualmachinesComponent } from './components/vm/virtualmachines/virtualmachines.component'
+import { VirtualmachinesComponent } from './components/vm/virtualmachines/virtualmachines.component';
+import { AwsComponent } from './components/vm/aws/aws.component';
+import { AzureComponent } from './components/vm/azure/azure.component';
+import { GcpComponent } from './components/vm/gcp/gcp.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { VirtualmachinesComponent } from './components/vm/virtualmachines/virtua
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    VirtualmachinesComponent
+    VirtualmachinesComponent,
+    AwsComponent,
+    AzureComponent,
+    GcpComponent
   ],
   imports: [
     BrowserModule,
