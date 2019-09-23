@@ -3,6 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { HomeComponent } from './components/home/home.component';
+import { AwsComponent } from './components/vm/aws/aws.component';
+import { GcpComponent } from './components/vm/gcp/gcp.component';
+import { AzureComponent } from './components/vm/azure/azure.component';
 
 const routes:Routes =[
     {
@@ -22,6 +25,18 @@ const routes:Routes =[
         path:'home',
         component:HomeComponent
     },
+    {
+        path:'home/aws',
+        component:AwsComponent
+    },
+    {
+        path:'home/azure',
+        component:AzureComponent
+    },
+    {
+        path:'home/gcp',
+        component:GcpComponent
+    }
 ];
 
 @NgModule({
