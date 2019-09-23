@@ -15,7 +15,8 @@ import { VirtualmachinesComponent } from './components/vm/virtualmachines/virtua
 import { AwsComponent } from './components/vm/aws/aws.component';
 import { AzureComponent } from './components/vm/azure/azure.component';
 import { GcpComponent } from './components/vm/gcp/gcp.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component'
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { HeaderComponent } from './components/header/header.component'
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component'
     AwsComponent,
     AzureComponent,
     GcpComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

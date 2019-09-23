@@ -24,20 +24,24 @@ const routes:Routes =[
     },
     {
         path:'home',
-        component:HomeComponent
+        component:HomeComponent,
+        children:[
+            {
+                path:'aws',
+                component:AwsComponent
+            },
+            {
+                path:'azure',
+                component:AzureComponent
+            },
+            {
+                path:'gcp',
+                component:GcpComponent
+            },
+        ]
     },
-    {
-        path:'home/aws',
-        component:AwsComponent
-    },
-    {
-        path:'home/azure',
-        component:AzureComponent
-    },
-    {
-        path:'home/gcp',
-        component:GcpComponent
-    },
+  
+
     {
         path:'dashboard',
         component:DashboardComponent
