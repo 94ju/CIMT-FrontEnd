@@ -14,7 +14,8 @@ import { HttpClientModule} from '@angular/common/http';
 import { VirtualmachinesComponent } from './components/vm/virtualmachines/virtualmachines.component';
 import { AwsComponent } from './components/vm/aws/aws.component';
 import { AzureComponent } from './components/vm/azure/azure.component';
-import { GcpComponent } from './components/vm/gcp/gcp.component'
+import { GcpComponent } from './components/vm/gcp/gcp.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component'
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { GcpComponent } from './components/vm/gcp/gcp.component'
     VirtualmachinesComponent,
     AwsComponent,
     AzureComponent,
-    GcpComponent
+    GcpComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

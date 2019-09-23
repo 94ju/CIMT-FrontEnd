@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AwsComponent } from './components/vm/aws/aws.component';
 import { GcpComponent } from './components/vm/gcp/gcp.component';
 import { AzureComponent } from './components/vm/azure/azure.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes:Routes =[
     {
@@ -36,6 +37,10 @@ const routes:Routes =[
     {
         path:'home/gcp',
         component:GcpComponent
+    },
+    {
+        path:'dashboard',
+        component:DashboardComponent
     }
 ];
 
