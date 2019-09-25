@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl} from '@angular/forms'
+import {FormGroup, FormControl, Validators} from '@angular/forms'
 
 @Component({
   selector: 'app-aws',
@@ -13,11 +13,11 @@ export class AwsComponent implements OnInit {
 
   ngOnInit() {
     this.awsForm=new FormGroup({
-      'ami':new FormControl(null),
-      'instanceType':new FormControl(null),
-      'numberOfInctances':new FormControl(null),
-      'storage':new FormControl(null),
-      'securityGroup':new FormControl(null)
+      'ami':new FormControl(null,Validators.required),
+      'instanceType':new FormControl(null,Validators.required),
+      'numberOfInctances':new FormControl(null,Validators.required),
+      'storage':new FormControl(null,Validators.required),
+      'securityGroup':new FormControl(null,Validators.required)
     })
   }
   onSubmit(){

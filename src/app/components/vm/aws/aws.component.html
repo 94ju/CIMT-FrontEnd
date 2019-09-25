@@ -11,30 +11,35 @@
                     matInput 
                     formControlName='ami'
                     placeholder="Choose an Amazon Machine Image (AMI)">
+                    <mat-error *ngIf="!awsForm.get('ami').valid && awsForm.get('ami').touched"  >Please enter a valid ami.</mat-error>
             </mat-form-field>
             <mat-form-field>
                 <input 
                     matInput 
                     formControlName='instanceType'
                     placeholder="Choose an Instance Type">
+                    <mat-error *ngIf="!awsForm.get('instanceType').valid && awsForm.get('instanceType').touched"  >Please enter a valiD instance Type.</mat-error>
             </mat-form-field>
             <mat-form-field>
                 <input 
                     matInput 
                     formControlName='numberOfInctances'
                     placeholder="Number of Instances">
+                    <mat-error *ngIf="!awsForm.get('numberOfInctances').valid && awsForm.get('numberOfInctances').touched"  >Please enter a valid number Of Instances.</mat-error>
             </mat-form-field>
             <mat-form-field>
                 <input 
                     matInput 
                     formControlName='storage'
                     placeholder="Add storage">
+                    <mat-error *ngIf="!awsForm.get('storage').valid && awsForm.get('storage').touched"  >Please enter a valid storage.</mat-error>
             </mat-form-field>
             <mat-form-field>
                 <input 
                     matInput 
                     formControlName='securityGroup'
                     placeholder="Configure Security group">
+                    <mat-error *ngIf="!awsForm.get('securityGroup').valid && awsForm.get('securityGroup').touched"  >Please enter a valid security Group.</mat-error>
             </mat-form-field>
             <br>
             <button mat-stroked-button color="primary" class="btn-block" type="submit">Launch</button>
