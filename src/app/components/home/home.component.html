@@ -1,10 +1,12 @@
 <mat-toolbar color="red" class="app-header" >
-    <div>CIMT</div> 
+    <div>CIMT | {{username}}</div> 
     <span class="nav-tool-items">
         <a mat-button routerLink="aws" routerLinkActive="active">AWS</a>
         <a mat-button  routerLink="gcp" routerLinkActive="active">Azure</a>
         <a mat-button  routerLink="azure" routerLinkActive="active">GCP</a>
         <a mat-button  routerLink="login" routerLinkActive="active">logout</a>
+        <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" style="margin-left: 2%" routerLink="home" routerLinkActive="active">home</mat-icon> -->
+
     </span>
 </mat-toolbar>
 <router-outlet></router-outlet>

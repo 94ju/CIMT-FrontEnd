@@ -7,20 +7,27 @@ import { AwsComponent } from './components/vm/aws/aws.component';
 import { GcpComponent } from './components/vm/gcp/gcp.component';
 import { AzureComponent } from './components/vm/azure/azure.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { HeaderComponent } from './components/header/header.component';
 
 const routes:Routes =[
     {
         path:'', 
         pathMatch:'full',
-        redirectTo:'login'
+        redirectTo:'header'
     },
     {
-        path:'login',
-        component:LoginComponent
-    },
-    {
-        path:'register',
-        component:RegisterComponent
+        path:'header',
+        component:HeaderComponent,
+        children:[
+            {
+                path:'login',
+                component:LoginComponent
+            },
+            {
+                path:'register',
+                component:RegisterComponent
+            }
+        ]
     },
     {
         path:'home',
@@ -40,8 +47,6 @@ const routes:Routes =[
             },
         ]
     },
-  
-
     {
         path:'dashboard',
         component:DashboardComponent
