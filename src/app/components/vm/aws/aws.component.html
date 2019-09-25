@@ -5,23 +5,39 @@
             <mat-card-header>
                     <mat-card-title>AWS VM launch</mat-card-title>
             </mat-card-header>
-        <form action="">
+        <form [formGroup]="awsForm" (ngSubmit)="onSubmit()">
             <mat-form-field>
-                <input matInput placeholder="Choose an Amazon Machine Image (AMI)">
+                <input 
+                    matInput 
+                    formControlName='ami'
+                    placeholder="Choose an Amazon Machine Image (AMI)">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Choose an Instance Type">
+                <input 
+                    matInput 
+                    formControlName='instanceType'
+                    placeholder="Choose an Instance Type">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Number of Instances">
+                <input 
+                    matInput 
+                    formControlName='numberOfInctances'
+                    placeholder="Number of Instances">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Add storage">
+                <input 
+                    matInput 
+                    formControlName='storage'
+                    placeholder="Add storage">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Configure Security group">
+                <input 
+                    matInput 
+                    formControlName='securityGroup'
+                    placeholder="Configure Security group">
             </mat-form-field>
-            
+            <br>
+            <button mat-stroked-button color="primary" class="btn-block" type="submit">Launch</button>
         </form>
     </mat-card>
 </div>
