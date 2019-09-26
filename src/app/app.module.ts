@@ -18,6 +18,7 @@ import { GcpComponent } from './components/vm/gcp/gcp.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/header/header.component'
 import { AuthInterceptor } from './components/auth/auth.interceptor';
+import { PricetableComponent } from './components/tables/pricetable/pricetable.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AuthInterceptor } from './components/auth/auth.interceptor';
     AzureComponent,
     GcpComponent,
     DashboardComponent,
-    HeaderComponent
+    HeaderComponent,
+    PricetableComponent
   ],
   imports: [
     BrowserModule,
