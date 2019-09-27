@@ -8,6 +8,7 @@ import { GcpComponent } from './components/vm/gcp/gcp.component';
 import { AzureComponent } from './components/vm/azure/azure.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/header/header.component';
+import { PricetableComponent } from './components/tables/pricetable/pricetable.component';
 
 const routes:Routes =[
     {
@@ -50,6 +51,10 @@ const routes:Routes =[
     {
         path:'dashboard',
         component:DashboardComponent
+    },
+    {
+        path:'pricetable',
+        component:PricetableComponent
     }
 ];
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PriceTableService } from '../priceTable.service';
 
 @Component({
   selector: 'app-pricetable',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PricetableComponent implements OnInit {
 
-  constructor() { }
+  constructor(private priceService:PriceTableService) { }
 
+  onGetData(){
+    console.log("check");
+    
+    console.log(this.priceService.getPrices())
+  }
   ngOnInit() {
+   
   }
 
 }
