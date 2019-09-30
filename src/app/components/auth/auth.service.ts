@@ -1,17 +1,22 @@
 import {Injectable} from "@angular/core"
 import { HttpClient } from "@angular/common/http";
 import { Authdata } from './auth-data.model';
+import { Subject } from 'rxjs';
 @Injectable({providedIn:"root"})
 export class AuthService{
     islogedin=false;
     private token:string;
     private userName:string;
+    private authServiceListner=new Subject<boolean>();
     constructor(private http:HttpClient){}
     getTOken(){
         return this.token;
     }
     getUserName(){
         return this.userName;
+    }
+    getAuthStatusListner(){
+        return this.authServiceListner.asObservable();
     }
     createUser(email:string,password:string,username:string,role:string){
         console.log("authservice")
@@ -26,6 +31,7 @@ export class AuthService{
             .subscribe(response=>{
                 const token =response.token;
                 this.token=token;
+                this.authServiceListner.next(true)
             })
 
     }
@@ -42,8 +48,14 @@ export class AuthService{
             .subscribe(response=>{
                 const token =response.token;
                 this.token=token
+                this.islogedin=true;
                 console.log(response)
             })
-    }   
+    } 
+    logOut(){
+        this.islogedin=false;
+        this.authServiceListner.next(false);
+        this.token=null;
+    }  
 
 }

@@ -25,6 +25,7 @@
               </mat-form-field>
             </mat-card-content>
             <button mat-stroked-button color="primary" class="btn-block" type="submit">Log in</button>
+            <mat-spinner *ngIf="!islogedIN"></mat-spinner>
           </form>
         </mat-card>
       

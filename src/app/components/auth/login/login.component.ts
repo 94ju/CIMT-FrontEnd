@@ -11,7 +11,7 @@ import { AuthService } from '../auth.service';
 export class LoginComponent implements OnInit {
 
   constructor(private route:Router,private authsevice:AuthService) { }
-
+  islogedIN;
   ngOnInit() {
   }
   login(){
@@ -23,11 +23,9 @@ export class LoginComponent implements OnInit {
     if(form.invalid){
       return;
     }
-    //this.authsevice.islogedin=true;
-    //console.log(form.value);
     this.route.navigate(['home']);
-    // console.log("Login com "+this.authsevice.islogedin)
     this.authsevice.loginUser(form.value.email,form.value.password)
+    this.islogedIN=this.authsevice.islogedin;
   }
 
 }
