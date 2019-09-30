@@ -29,17 +29,15 @@ export class PricetableComponent implements OnInit {
   constructor(private priceService:PriceTableService) { }
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
-  // datasource;
+   datasource1;
   // displayedColumns: string[] = ['Catergory', 'Machine Type', 'CPUs', 'Memory','Network','On-Demand-Price(Linux)','AVG.Spot Price'];
-  onGetData(){
-    console.log("check");
-    
-    this.priceService.getPrices();
-  }
-  async ngOnInit() {
-    // this.datasource=await this.priceService.getPrices();
-    // console.log("check 1"+this.datasource)   
-   
+   onGetData(){
+      this.priceService.getPrices().subscribe(data=>{
+        this.datasource1
+        console.log(this.datasource1.products[0].category);
+      });
+   }
+  ngOnInit() {
   }
 
 }
