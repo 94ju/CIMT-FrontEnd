@@ -26,7 +26,6 @@ export class AuthService{
             .subscribe(response=>{
                 const token =response.token;
                 this.token=token;
-                //console.log(response);
             })
 
     }
@@ -39,8 +38,10 @@ export class AuthService{
             role:null
         }
         this.userName=email;
-        this.http.post("http://localhost:3000/api/users/login",authData)
+        this.http.post<{token:string}>("http://localhost:3000/api/users/login",authData)
             .subscribe(response=>{
+                const token =response.token;
+                this.token=token
                 console.log(response)
             })
     }   

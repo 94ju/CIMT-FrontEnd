@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms'
+import { Vmservice } from '../vm.service';
 
 @Component({
   selector: 'app-aws',
@@ -9,7 +10,7 @@ import {FormGroup, FormControl, Validators} from '@angular/forms'
 export class AwsComponent implements OnInit {
 
   awsForm:FormGroup;
-  constructor() { }
+  constructor(private vmService:Vmservice) { }
 
   ngOnInit() {
     this.awsForm=new FormGroup({
@@ -21,8 +22,8 @@ export class AwsComponent implements OnInit {
     })
   }
   onSubmit(){
-    console.log(this.awsForm);
-    
+    console.log(this.awsForm.value.ami,this.awsForm.value.instanceType,this.awsForm.value.numberOfInctances,this.awsForm.value.storage,this.awsForm.value.securityGroup);
+    this.vmService.vmCreate(this.awsForm.value.ami,this.awsForm.value.instanceType,this.awsForm.value.numberOfInctances,this.awsForm.value.storage,this.awsForm.value.securityGroup)
   }
 
 }
