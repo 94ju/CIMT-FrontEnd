@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core"
 import { HttpClient } from "@angular/common/http";
 import { Authdata } from './auth-data.model';
 import { Subject } from 'rxjs';
+import { ThrowStmt } from '@angular/compiler';
 @Injectable({providedIn:"root"})
 export class AuthService{
     islogedin=false;
@@ -11,6 +12,9 @@ export class AuthService{
     constructor(private http:HttpClient){}
     getTOken(){
         return this.token;
+    }
+    getIsAuthenticated(){
+        return this.islogedin;
     }
     getUserName(){
         return this.userName;

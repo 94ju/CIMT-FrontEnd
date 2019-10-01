@@ -9,6 +9,8 @@ import { AzureComponent } from './components/vm/azure/azure.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PricetableComponent } from './components/tables/pricetable/pricetable.component';
+import { AuthGuard } from './components/auth/auth.guard';
+import { AuthService } from './components/auth/auth.service';
 
 const routes:Routes =[
     {
@@ -33,6 +35,9 @@ const routes:Routes =[
     {
         path:'home',
         component:HomeComponent,
+        canActivate:[
+            AuthGuard
+        ],
         children:[
             {
                 path:'aws',
@@ -60,7 +65,8 @@ const routes:Routes =[
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+    exports: [RouterModule],
+    providers:[AuthGuard]
   })
   
   export class AppRoutingModule { }
