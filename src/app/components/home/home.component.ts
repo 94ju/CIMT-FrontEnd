@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   username;
-  constructor(private route:Router,private authService:AuthService) { }
+  constructor(private authService:AuthService) { }
 
   ngOnInit() {
     this.username=this.authService.getUserName();
@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   }
   onLogOut(){
     this.authService.logOut();
-    this.route.navigate(['header/login']);
+    
   }
 
 }
