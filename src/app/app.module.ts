@@ -19,6 +19,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/header/header.component'
 import { AuthInterceptor } from './components/auth/auth.interceptor';
 import { PricetableComponent } from './components/tables/pricetable/pricetable.component';
+import { ChartsComponent } from './components/charts/charts.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { PricetableComponent } from './components/tables/pricetable/pricetable.c
     GcpComponent,
     DashboardComponent,
     HeaderComponent,
-    PricetableComponent
+    PricetableComponent,
+    ChartsComponent
   ],
   imports: [
     BrowserModule,

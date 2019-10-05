@@ -1,0 +1,11 @@
+.pannelc{
+    width:20%;
+    position: absolute;
+}
+.pannel2{
+    position: absolute;
+    top:35%;
+    width:20%
+    /* right: 0px;
+    width: 300px; */
+}

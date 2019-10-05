@@ -1,13 +1,60 @@
 <mat-toolbar color="red" class="app-header" >
     <div>CIMT | {{username}}</div> 
     <span class="nav-tool-items">
+        <a mat-button routerLink="/dashboard" routerLinkActive="active">DashBoard</a>
         <a mat-button routerLink="aws" routerLinkActive="active">AWS</a>
         <a mat-button  routerLink="gcp" routerLinkActive="active">Azure</a>
         <a mat-button  routerLink="azure" routerLinkActive="active">GCP</a>
         <a mat-button  routerLink="home" routerLinkActive="active">Home</a>
         <button mat-button (click)="onLogOut()" >logout</button>
-        
-
     </span>
 </mat-toolbar>
+<br><br><br><br><br>
+<div  class="pannelc">
+  <mat-accordion multi="true">
+    <mat-expansion-panel >
+      <mat-expansion-panel-header>
+        Virtual machines | AWS
+      </mat-expansion-panel-header>
+      <p>AWS</p>
+    </mat-expansion-panel>
+    <mat-expansion-panel >
+      <mat-expansion-panel-header>
+        Virtual machines | GCP
+      </mat-expansion-panel-header>
+      <p>AWS</p>
+    </mat-expansion-panel>
+    <mat-expansion-panel >
+      <mat-expansion-panel-header>
+        Virtual machines | Azure
+      </mat-expansion-panel-header>
+      <p>AWS</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <mat-accordion multi="true">
+    <mat-expansion-panel >
+      <mat-expansion-panel-header>
+        S3 Buckets | AWS
+      </mat-expansion-panel-header>
+      <p>AWS</p>
+    </mat-expansion-panel>
+    <mat-expansion-panel >
+      <mat-expansion-panel-header>
+        Cloud Storage | GCP
+      </mat-expansion-panel-header>
+      <p>AWS</p>
+    </mat-expansion-panel>
+    <mat-expansion-panel >
+      <mat-expansion-panel-header>
+        Blob Storage | Azure
+      </mat-expansion-panel-header>
+      <p>AWS</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+<div class="pannel2">
+ 
+</div>
+<app-charts></app-charts>  
+  
 <router-outlet></router-outlet>
