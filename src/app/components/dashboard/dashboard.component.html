@@ -1,6 +1,71 @@
-<mat-grid-list cols="2" rowHeight="2:1">
-        <mat-grid-tile style="background-color: cadetblue"></mat-grid-tile>
+<!-- <mat-grid-list cols="2" rowHeight="2:1" class="grid">
+        <mat-grid-tile style="background-color: cadetblue">
+                        <mat-grid-list cols="2" rowHeight="2:1" >
+                                        <mat-grid-tile style="background-color: cadetblue">
+                                        <mat-grid-tile style="background-color: rgb(217, 234, 235)"></mat-grid-tile>
+                                        <mat-grid-tile style="background-color: rgb(8, 127, 131)"></mat-grid-tile>
+                                        <mat-grid-tile style="background-color: rgb(122, 228, 231)"></mat-grid-tile>
+                        </mat-grid-list>
+        </mat-grid-tile>
         <mat-grid-tile style="background-color: rgb(217, 234, 235)"></mat-grid-tile>
         <mat-grid-tile style="background-color: rgb(8, 127, 131)"></mat-grid-tile>
         <mat-grid-tile style="background-color: rgb(122, 228, 231)"></mat-grid-tile>
+</mat-grid-list> -->
+<!-- <mat-grid-list cols="3" >
+                <mat-grid-tile
+                    *ngFor="let tile of tiles"
+                    [colspan]="tile.cols"
+                    [rowspan]="tile.rows"
+                    [style.background]="tile.color">
+                  {{tile.text}}
+                </mat-grid-tile>
+</mat-grid-list> -->
+<mat-grid-list cols="12"  rowHeight="80px">
+                <mat-grid-tile
+                [colspan]="12"
+                [rowspan]="1"
+                style="background-color: rgb(217, 234, 235)">
+            </mat-grid-tile>
+                <mat-grid-tile
+                    [colspan]="2"
+                    [rowspan]="8"
+                    style="background-color: rgb(217, 234, 235)">
+                </mat-grid-tile>
+                <mat-grid-tile
+                    [colspan]="5"
+                    [rowspan]="4"
+                   >
+                   <mat-grid-tile-header>AWS Total Cost: $49</mat-grid-tile-header>
+                  <div class="pit">
+                                <canvas id="barChart1"></canvas>      
+                  </div>
+                </mat-grid-tile>
+                <mat-grid-tile
+                    [colspan]="5"
+                    [rowspan]="4"
+                    style="background-color: rgb(122, 228, 231)">
+                    <mat-grid-tile-header>Azure Total Cost: $49</mat-grid-tile-header>
+                    <div class="pit">
+                                <canvas id="barChart2"></canvas>      
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile
+                    [colspan]="5"
+                    [rowspan]="4"
+                    style="background-color: rgb(234, 235, 232)">
+                    <mat-grid-tile-header>GCP Total Cost: $49</mat-grid-tile-header>
+                    <div class="pit">
+                                <canvas id="barChart3"></canvas>      
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile
+                    [colspan]="5"
+                    [rowspan]="4"
+                    style="background-color: rgb(207, 245, 247)">
+                    <mat-grid-tile-header>Oracle Total Cost: $49</mat-grid-tile-header>
+                    <div class="pit">
+                                <canvas id="barChart4"></canvas>      
+                    </div>
+                </mat-grid-tile>
 </mat-grid-list>
+              

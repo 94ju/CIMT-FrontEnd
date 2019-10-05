@@ -1,0 +1,12 @@
+.pit{
+    width: 30%;
+    right: 0px;
+    position: absolute;
+}
+.bar{
+    width: 30%;
+    right: 0px;
+    position: absolute;
+    top:60%;
+    height: 80%;
+}
