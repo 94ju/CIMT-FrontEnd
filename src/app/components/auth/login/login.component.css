@@ -128,6 +128,11 @@ body {
 .btn-block{
   color:rgb(7, 243, 243)
 }
+.orange-spinner::ng-deep circle{
+  stroke:rgb(49, 31, 41) !important;
+  left: 50%;
+  margin-left: -4em;
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
