@@ -50,8 +50,9 @@ export class AuthService{
             role:null
         }
         this.userName=email;
-        this.http.post<{token:string,expiresIn:number}>("http://localhost:3000/api/users/login",authData)
+        this.http.post<{token:string,expiresIn:number}>("http://cimt-env.a2kempn2mx.us-east-1.elasticbeanstalk.com/api/users/login",authData)
             .subscribe(response=>{
+                console.log("check auth")
                 const token =response.token;
                 const expiresInDuration= response.expiresIn;
                 this.setAuthTimer(expiresInDuration)
@@ -60,7 +61,7 @@ export class AuthService{
                 const now = new Date();
                 const expirationDate= new Date(now.getTime() +expiresInDuration*1000 )
                 console.log(expirationDate);
-                
+                this.route.navigate(['home']);
                 this.saveAuthData(token,expirationDate)
                 console.log(response)
             })

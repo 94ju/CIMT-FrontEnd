@@ -1,16 +1,87 @@
-<mat-toolbar color="red" class="app-header" >
-    <div>CIMT | {{username}}</div> 
-    <span class="nav-tool-items">
-        <a mat-button routerLink="/dashboard" routerLinkActive="active">DashBoard</a>
-        <a mat-button routerLink="aws" routerLinkActive="active">AWS</a>
-        <a mat-button  routerLink="gcp" routerLinkActive="active">Azure</a>
-        <a mat-button  routerLink="azure" routerLinkActive="active">GCP</a>
-        <a mat-button  routerLink="home" routerLinkActive="active">Home</a>
-        <button mat-button (click)="onLogOut()" >logout</button>
-    </span>
-</mat-toolbar>
-<br><br><br><br><br>
-<div  class="pannelc">
+
+<!-- <br><br><br><br><br> -->
+
+<mat-grid-list cols="12"  rowHeight="70px" >
+                <mat-grid-tile
+                  [colspan]="12"
+                  [rowspan]="1"
+                  style="background-color:rgb(7, 243, 243)"
+                  >
+                            
+                            <mat-toolbar  class="app-header" >
+                                <div>CIMT | {{username}}</div> 
+                                <span class="nav-tool-items">
+                                    <a mat-button routerLink="/dashboard" routerLinkActive="active">DashBoard</a>
+                                    <a mat-button routerLink="aws" routerLinkActive="active">AWS</a>
+                                    <a mat-button  routerLink="gcp" routerLinkActive="active">Azure</a>
+                                    <a mat-button  routerLink="azure" routerLinkActive="active">GCP</a>
+                                    <a mat-button  routerLink="home" routerLinkActive="active">Home</a>
+                                    <button mat-button (click)="onLogOut()" >logout</button>
+                                </span>
+                            </mat-toolbar>
+                </mat-grid-tile>
+                <mat-grid-tile
+                    [colspan]="3"
+                    [rowspan]="10"
+                    style="background-color: rgb(77, 80, 80)">
+                      <div class="pannelaws">
+                          <mat-accordion multi="true" >
+                              <mat-expansion-panel *ngFor="let vm of vms" >
+                                      <mat-expansion-panel-header>
+                                         AWS | Instance Type: {{vm.instanceType}}
+                                      </mat-expansion-panel-header>
+                                      <p style="color: rgb(199, 206, 106);">AMI :{{vm.ami}} </p>
+                                      <p style="color: rgb(199, 206, 106);">Storage :{{vm.storage}} </p>
+                                      <p style="color: rgb(199, 206, 106);">Security Group :{{vm.securityGroup}}</p>
+                                      <p style="color: rgb(199, 206, 106);">Stastus : </p>
+                                      <p style="color: rgb(199, 206, 106);">PrivateIP :</p>
+                                      <button mat-stroked-button class="buttonstop" (click)="onStop()">Stop</button>
+                                      <button mat-stroked-button class="buttonreboot" (click)="onReboot()">Reboot</button>
+                                      <button mat-stroked-button class="buttonterminate"(click)="onTerminate()">Terminate</button>
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel >
+                                        <mat-expansion-panel-header>
+                                          Virtual machines | GCP
+                                        </mat-expansion-panel-header>
+                                        <p>AWS</p>
+                                      </mat-expansion-panel>
+                                      <mat-expansion-panel >
+                                        <mat-expansion-panel-header>
+                                          Virtual machines | Azure
+                                        </mat-expansion-panel-header>
+                                        <p>AWS</p>
+                                      </mat-expansion-panel>
+                          </mat-accordion> 
+                      </div>  
+                </mat-grid-tile>
+                <mat-grid-tile
+                [colspan]="6"
+                [rowspan]="10"
+                style="background-color: rgb(195, 201, 201)"
+                >   
+                
+                    <div class="router">
+                        <router-outlet></router-outlet>
+                    </div>
+              </mat-grid-tile>
+                <mat-grid-tile
+                [colspan]="3"
+                [rowspan]="4"
+                style="background-color: rgb(77, 80, 80)"> 
+                <mat-grid-tile-header>VM usage</mat-grid-tile-header>
+                <div class="pannel2">
+                    <app-charts></app-charts>
+                </div>
+                  
+              </mat-grid-tile>
+                <mat-grid-tile
+                [colspan]="3"
+                [rowspan]="4"
+                style="background-color: rgb(77, 80, 80)"> 
+                <mat-grid-tile-header>VM Cost: $124</mat-grid-tile-header>
+              </mat-grid-tile>
+</mat-grid-list>
+<!-- <div  class="pannelc">
   <mat-accordion multi="true">
     <mat-expansion-panel >
       <mat-expansion-panel-header>
@@ -57,4 +128,4 @@
 </div>
 <app-charts></app-charts>  
   
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->

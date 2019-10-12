@@ -3,13 +3,14 @@
         
     <mat-card class="vm-box" >
             <mat-card-header>
-                    <mat-card-title>AWS VM launch</mat-card-title>
+                    <mat-card-title style="color: rgb(59, 59, 59);   ">AWS VM launch</mat-card-title>
             </mat-card-header>
         <form [formGroup]="awsForm" (ngSubmit)="onSubmit()">
             <mat-form-field>
                 <input 
                     matInput 
                     formControlName='ami'
+                    style="color: beige"
                     placeholder="Choose an Amazon Machine Image (AMI)">
                     <mat-error *ngIf="!awsForm.get('ami').valid && awsForm.get('ami').touched"  >Please enter a valid ami.</mat-error>
             </mat-form-field>

@@ -22,8 +22,10 @@ export class AwsComponent implements OnInit {
     })
   }
   onSubmit(){
+    
     console.log(this.awsForm.value.ami,this.awsForm.value.instanceType,this.awsForm.value.numberOfInctances,this.awsForm.value.storage,this.awsForm.value.securityGroup);
     this.vmService.vmCreate(this.awsForm.value.ami,this.awsForm.value.instanceType,this.awsForm.value.numberOfInctances,this.awsForm.value.storage,this.awsForm.value.securityGroup)
+    this.vmService.getVM();
   }
 
 }

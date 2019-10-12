@@ -1,7 +1,7 @@
-/* .pit{
-    width: 30%;
-    right: 0px;
-    position: absolute;
+.pit{
+    width: 100%;
+    /* right: 0px; */
+    /* position: absolute; */
 }
 .bar{
     width: 30%;
@@ -9,4 +9,4 @@
     position: absolute;
     top:60%;
     height: 80%;
-} */
+}

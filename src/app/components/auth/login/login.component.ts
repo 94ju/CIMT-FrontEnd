@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     if(form.invalid){
       return;
     }
-    this.route.navigate(['home']);
+   
     this.authsevice.loginUser(form.value.email,form.value.password)
     this.islogedIN=this.authsevice.islogedin;
   }
