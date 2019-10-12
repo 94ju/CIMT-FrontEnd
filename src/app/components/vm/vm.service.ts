@@ -29,10 +29,24 @@ export class Vmservice{
 
     getVM(){
         console.log('vm service')
-        this.http.get<{message:string;vms:Vmdata[]}>('http://localhost:3000/api/vms/vmdata').subscribe(vmData=>{
-            this.vms=vmData.vms;
+        this.http.get<{message:string;vms:any}>('http://localhost:3000/api/vms/vmdata').
+        pipe(map((vmData)=>{
+            return vmData.vms.map(vm=>{
+                return{
+                    id:vm._id,
+                    ami:vm.ami,
+                    instanceType:vm.instanceType,
+                    numberOfInstances:vm.numberOfInstances,
+                    securityGroup:vm.securityGroup,
+                    storage:vm.storage
+
+                };
+            });
+        }))
+        .subscribe(vmData=>{
+            this.vms=vmData;
             this.vmUpdated.next([...this.vms])  
-            console.log(this.vms)
+            console.log("vmd data wiht id"+this.vms)
         }
                 
         )
@@ -40,6 +54,16 @@ export class Vmservice{
     }
     getVmUpdateListener() {
         return this.vmUpdated.asObservable();
-      }
+    }
+    deleteVM(id:string){
+        console.log("vmdelete"+id)
+        this.http.delete('http://localhost:3000/api/vms/vmdata/'+id)
+            .subscribe(()=>{
+                const updatedVMS = this.vms.filter(vm => vm.id !== id);
+                this.vms = updatedVMS;
+                this.vmUpdated.next([...this.vms]);
+            })
+            
+    }
 
 }

@@ -24,21 +24,18 @@ export class HomeComponent implements OnInit {
     this.vmsSub=this.vmService.getVmUpdateListener()
       .subscribe((vm:Vmdata[])=>{
         this.vms=vm;
+        console.log("check"+this.vms)
       })
-    console.log(this.vms);
-    console.log("check")
-
   }
   onLogOut(){
     this.authService.logOut();
-    
   }
   onStop(){
     console.log("stop");
-    
   }
-  onTerminate(){
-    console.log("terminate")
+  onTerminate(id:string){
+    console.log(id)
+    this.vmService.deleteVM(id);
   }
   onReboot(){
     console.log("reboot")
