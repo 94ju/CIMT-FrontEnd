@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms'
 import { Vmservice } from '../vm.service';
+import { interval, Subscription } from 'rxjs';
+
+
 
 @Component({
   selector: 'app-aws',
@@ -10,6 +13,7 @@ import { Vmservice } from '../vm.service';
 export class AwsComponent implements OnInit {
 
   awsForm:FormGroup;
+  subscription: Subscription;
   constructor(private vmService:Vmservice) { }
 
   ngOnInit() {
@@ -25,7 +29,12 @@ export class AwsComponent implements OnInit {
     
     console.log(this.awsForm.value.ami,this.awsForm.value.instanceType,this.awsForm.value.numberOfInctances,this.awsForm.value.storage,this.awsForm.value.securityGroup);
     this.vmService.vmCreate(this.awsForm.value.ami,this.awsForm.value.instanceType,this.awsForm.value.numberOfInctances,this.awsForm.value.storage,this.awsForm.value.securityGroup)
-    this.vmService.getVM();
+    
+    setTimeout(() => {
+      this.vmService.getVM()
+    }, 5000);
+    // const source = interval(5000);
+    // this.subscription = source.subscribe(() => this.vmService.getVM());
   }
 
 }

@@ -30,15 +30,19 @@ export class HomeComponent implements OnInit {
   onLogOut(){
     this.authService.logOut();
   }
-  onStop(){
+  onStop(InstanceId:string){
     console.log("stop");
+    this.vmService.stopVM(InstanceId)
   }
-  onTerminate(id:string){
+  onTerminate(id:string,InstanceId:string){
     console.log(id)
-    this.vmService.deleteVM(id);
+    this.vmService.deleteVM(id,InstanceId);
   }
-  onReboot(){
-    console.log("reboot")
+  onReboot(InstanceId:string){
+    this.vmService.rebootVM(InstanceId)
+  }
+  onStart(InstanceId:string){
+    this.vmService.startVM(InstanceId)
   }
 
 }

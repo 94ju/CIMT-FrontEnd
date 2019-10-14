@@ -18,7 +18,9 @@ export class Vmservice{
             instanceType:instanceType,
             numberOfInstances:numberOfInstances,
             storage:storage,
-            securityGroup:securityGroup
+            securityGroup:securityGroup,
+            InstanceId:null,
+            PrivateIpAddress:null
         }
         this.vms.push(vm);
         console.log(vm);
@@ -38,8 +40,9 @@ export class Vmservice{
                     instanceType:vm.instanceType,
                     numberOfInstances:vm.numberOfInstances,
                     securityGroup:vm.securityGroup,
-                    storage:vm.storage
-
+                    storage:vm.storage,
+                    InstanceId:vm.InstanceId,
+                    PrivateIpAddress:vm.PrivateIpAddress
                 };
             });
         }))
@@ -47,19 +50,50 @@ export class Vmservice{
             this.vms=vmData;
             this.vmUpdated.next([...this.vms])  
             console.log("vmd data wiht id"+this.vms)
-        }
-                
+        }        
         )
-    
     }
     getVmUpdateListener() {
         return this.vmUpdated.asObservable();
     }
-    deleteVM(id:string){
-        console.log("vmdelete"+id)
-        this.http.delete('http://localhost:3000/api/vms/vmdata/'+id)
+    deleteVM(id:string,InstanceId:string){
+        this.http.delete('http://localhost:3000/api/vms/vmdata/',{params: {id: id,InstanceId:InstanceId}})
             .subscribe(()=>{
                 const updatedVMS = this.vms.filter(vm => vm.id !== id);
+                this.vms = updatedVMS;
+                this.vmUpdated.next([...this.vms]);
+            })
+            
+    }
+    rebootVM(InstanceId:string){
+        const vmId={InstanceId:InstanceId}
+        console.log("reboot"+InstanceId)
+        this.http.post('http://localhost:3000/api/vms/reboot/',vmId)
+            .subscribe(()=>{
+                const updatedVMS = this.vms.filter(vm => vm.InstanceId !==InstanceId);
+                this.vms = updatedVMS;
+                this.vmUpdated.next([...this.vms]);
+            })
+            
+    }
+
+    stopVM(InstanceId:string){
+        const vmId={InstanceId:InstanceId}
+        console.log("reboot"+InstanceId)
+        this.http.post('http://localhost:3000/api/vms/stop/',vmId)
+            .subscribe(()=>{
+                const updatedVMS = this.vms.filter(vm => vm.InstanceId !==InstanceId);
+                this.vms = updatedVMS;
+                this.vmUpdated.next([...this.vms]);
+            })
+            
+    }
+    startVM(InstanceId:string){
+        const vmId={InstanceId:InstanceId}
+        console.log("reboot"+InstanceId)
+        this.http.post('http://localhost:3000/api/vms/start/',vmId)
+            .subscribe(()=>{
+                const updatedVMS = this.vms.filter(vm => vm.InstanceId !==InstanceId);
                 this.vms = updatedVMS;
                 this.vmUpdated.next([...this.vms]);
             })
