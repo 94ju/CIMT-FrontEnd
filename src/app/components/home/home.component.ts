@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private authService:AuthService,private vmService:Vmservice) { }
   vms:Vmdata[]=[]
+  showComponent=true;
   ngOnInit() {
     this.username=this.authService.getUserName();
     console.log(this.username);
@@ -43,6 +44,12 @@ export class HomeComponent implements OnInit {
   }
   onStart(InstanceId:string){
     this.vmService.startVM(InstanceId)
+  }
+  onChangeView(){
+    this.showComponent=false;
+  }
+  onChangeAWS(){
+    this.showComponent=true
   }
 
 }

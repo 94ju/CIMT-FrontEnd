@@ -11,8 +11,9 @@
                             <mat-toolbar  class="app-header" >
                                 <div>CIMT | {{username}}</div> 
                                 <span class="nav-tool-items">
-                                    <a mat-button routerLink="/dashboard" routerLinkActive="active">DashBoard</a>
-                                    <a mat-button routerLink="aws" routerLinkActive="active">AWS</a>
+                                    <!-- <button mat-button  (click)="onChangeView()">DashBoard</button> -->
+                                    <button mat-button routerLink="home" routerLinkActive="active" (click)="onChangeView()">DashBoard</button>
+                                    <button mat-button routerLink="aws" routerLinkActive="active" (click)="onChangeAWS()">AWS</button>
                                     <a mat-button  routerLink="gcp" routerLinkActive="active">Azure</a>
                                     <a mat-button  routerLink="azure" routerLinkActive="active">GCP</a>
                                     <a mat-button  routerLink="home" routerLinkActive="active">Home</a>
@@ -20,11 +21,12 @@
                                 </span>
                             </mat-toolbar>
                 </mat-grid-tile>
+                <div *ngIf="showComponent">
                 <mat-grid-tile
                     [colspan]="3"
                     [rowspan]="10"
                     style="background-color: rgb(77, 80, 80)">
-                      <div class="pannelaws">
+                      <div class="pannelaws" >
                           <mat-accordion multi="true" >
                               <mat-expansion-panel *ngFor="let vm of vms" >
                                       <mat-expansion-panel-header>
@@ -59,8 +61,8 @@
                 [colspan]="6"
                 [rowspan]="10"
                 style="background-color: rgb(195, 201, 201)"
-                >   
                 
+                >   
                     <div class="router">
                         <router-outlet></router-outlet>
                     </div>
@@ -68,7 +70,7 @@
                 <mat-grid-tile
                 [colspan]="3"
                 [rowspan]="4"
-                style="background-color: rgb(77, 80, 80)"> 
+                style="background-color: rgb(77, 80, 80)" > 
                 <mat-grid-tile-header>VM usage</mat-grid-tile-header>
                 <div class="pannel2">
                     <app-charts></app-charts>
@@ -78,9 +80,15 @@
                 <mat-grid-tile
                 [colspan]="3"
                 [rowspan]="4"
-                style="background-color: rgb(77, 80, 80)"> 
+                style="background-color: rgb(77, 80, 80)" 
+                
+                > 
                 <mat-grid-tile-header>VM Cost: $124</mat-grid-tile-header>
               </mat-grid-tile>
+            </div>
+            <div *ngIf="!showComponent">
+              <app-dashboard></app-dashboard>
+            </div>
 </mat-grid-list>
 <!-- <div  class="pannelc">
   <mat-accordion multi="true">

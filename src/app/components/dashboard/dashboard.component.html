@@ -20,16 +20,51 @@
                   {{tile.text}}
                 </mat-grid-tile>
 </mat-grid-list> -->
-<mat-grid-list cols="12"  rowHeight="80px">
-                <mat-grid-tile
+<mat-grid-list cols="12"  rowHeight="80px" class="grid">
+                <!-- <mat-grid-tile
                 [colspan]="12"
                 [rowspan]="1"
                 style="background-color: rgb(217, 234, 235)">
-            </mat-grid-tile>
+            </mat-grid-tile> -->
                 <mat-grid-tile
                     [colspan]="2"
                     [rowspan]="8"
-                    style="background-color: rgb(217, 234, 235)">
+                    style="background-color: rgb(77, 80, 80)">
+                    <div class="dashboard" >
+                            <mat-accordion multi="true" >
+                                    <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                Cost Explorer
+                                            </mat-expansion-panel-header>
+                                            <p>AWS</p>
+                                    </mat-expansion-panel>
+                            </mat-accordion>
+                            <mat-accordion multi="true" >
+                                    <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                Budget Report
+                                            </mat-expansion-panel-header>
+                                            <p>AWS</p>
+                                    </mat-expansion-panel>
+                            </mat-accordion>
+                            <mat-accordion multi="true" >
+                                    <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                Billings
+                                            </mat-expansion-panel-header>
+                                            <p>AWS</p>
+                                    </mat-expansion-panel>
+                            </mat-accordion>
+                            <mat-accordion multi="true" >
+                                    <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                Payment Methods
+                                            </mat-expansion-panel-header>
+                                            <p>AWS</p>
+                                    </mat-expansion-panel>
+                            </mat-accordion>
+                    </div>
+                    
                 </mat-grid-tile>
                 <mat-grid-tile
                     [colspan]="5"
