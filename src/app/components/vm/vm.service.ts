@@ -4,6 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth/auth.service';
 import { map } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import {environment} from '../../../environments/environment'
+
+const BACKEND_URL=environment.apiUrl+"/vms/";
 
 @Injectable({providedIn:"root"})
 export class Vmservice{
@@ -27,12 +30,12 @@ export class Vmservice{
         console.log(vm);
         console.log(this.authService.getTOken());
         
-          this.http.post("http://localhost:3000/api/vms/createvm",vm).subscribe(res=>console.log(res))
+          this.http.post(BACKEND_URL+"/createvm",vm).subscribe(res=>console.log(res))
     }
 
     getVM(){
         console.log('vm service')
-        this.http.get<{message:string;vms:any}>('http://localhost:3000/api/vms/vmdata').
+        this.http.get<{message:string;vms:any}>(BACKEND_URL+'/vmdata').
         pipe(map((vmData)=>{
             return vmData.vms.map(vm=>{
                 console.log("c_id "+vm.creator)
@@ -62,7 +65,7 @@ export class Vmservice{
         return this.vmUpdated.asObservable();
     }
     deleteVM(id:string,InstanceId:string){
-        this.http.delete('http://localhost:3000/api/vms/vmdata/',{params: {id: id,InstanceId:InstanceId}})
+        this.http.delete(BACKEND_URL+'/vmdata/',{params: {id: id,InstanceId:InstanceId}})
             .subscribe(()=>{
                 const updatedVMS = this.vms.filter(vm => vm.id !== id);
                 this.vms = updatedVMS;
@@ -73,7 +76,7 @@ export class Vmservice{
     rebootVM(InstanceId:string){
         const vmId={InstanceId:InstanceId}
         console.log("reboot"+InstanceId)
-        this.http.post('http://localhost:3000/api/vms/reboot/',vmId)
+        this.http.post(BACKEND_URL+'/reboot/',vmId)
             .subscribe(()=>{
                 const updatedVMS = this.vms.filter(vm => vm.InstanceId !==InstanceId);
                 this.vms = updatedVMS;
@@ -85,7 +88,7 @@ export class Vmservice{
     stopVM(InstanceId:string){
         const vmId={InstanceId:InstanceId}
         console.log("reboot"+InstanceId)
-        this.http.post('http://localhost:3000/api/vms/stop/',vmId)
+        this.http.post(BACKEND_URL+'/stop/',vmId)
             .subscribe(()=>{
                 const updatedVMS = this.vms.filter(vm => vm.InstanceId !==InstanceId);
                 this.vms = updatedVMS;
@@ -96,7 +99,7 @@ export class Vmservice{
     startVM(InstanceId:string){
         const vmId={InstanceId:InstanceId}
         console.log("reboot"+InstanceId)
-        this.http.post('http://localhost:3000/api/vms/start/',vmId)
+        this.http.post(BACKEND_URL+'/start/',vmId)
             .subscribe(()=>{
                 const updatedVMS = this.vms.filter(vm => vm.InstanceId !==InstanceId);
                 this.vms = updatedVMS;
