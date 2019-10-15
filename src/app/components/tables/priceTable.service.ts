@@ -13,8 +13,8 @@ export class PriceTableService{
     displayedColumns: string[] = ['Catergory', 'Machine Type', 'CPUs', 'Memory','Network','On-Demand-Price(Linux)','AVG.Spot Price'];
     constructor(private http:HttpClient){}
    
-    getPrices():Observable<ApiResponse>{
-        return this.http.get<ApiResponse>(this.priceurl);    
+    getPrices():Observable<any>{
+        return this.http.get<{product:any}>(this.priceurl);    
     }
 
     ngOnInit() {

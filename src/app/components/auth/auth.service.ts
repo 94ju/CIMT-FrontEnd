@@ -6,7 +6,7 @@ import { ThrowStmt } from '@angular/compiler';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
-const BACKEND_URL=environment.apiUrl+"/users/";
+const BACKEND_URL=environment.apiUrl+"/users";
 
 @Injectable({providedIn:"root"})
 export class AuthService{

@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   login(){
-    
     this.route.navigate(['home'])
     console.log("check")
   }
@@ -23,7 +22,6 @@ export class LoginComponent implements OnInit {
     if(form.invalid){
       return;
     }
-    // this.isLoading = true;
     this.authsevice.loginUser(form.value.email,form.value.password)
     this.islogedIN=this.authsevice.getIsAuth();
   }
