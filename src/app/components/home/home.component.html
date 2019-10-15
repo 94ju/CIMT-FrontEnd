@@ -12,6 +12,7 @@
                                 <div>CIMT | {{username}}</div> 
                                 <span class="nav-tool-items">
                                     <!-- <button mat-button  (click)="onChangeView()">DashBoard</button> -->
+                                    <button mat-button routerLink="home" routerLinkActive="active" (click)="onChangeView()">Comparison</button>
                                     <button mat-button routerLink="home" routerLinkActive="active" (click)="onChangeView()">DashBoard</button>
                                     <button mat-button routerLink="aws" routerLinkActive="active" (click)="onChangeAWS()">AWS</button>
                                     <a mat-button  routerLink="gcp" routerLinkActive="active">Azure</a>
@@ -36,11 +37,16 @@
                                       <p style="color: rgb(199, 206, 106);">Storage :{{vm.storage}} </p>
                                       <p style="color: rgb(199, 206, 106);">Security Group :{{vm.securityGroup}}</p>
                                       <p style="color: rgb(199, 206, 106);">Instance ID :{{vm.InstanceId}} </p>
-                                      <p style="color: rgb(199, 206, 106);">PrivateIP :{{vm.PrivateIpAddress}}</p>
-                                      <button mat-stroked-button class="buttonstop" (click)="onStop(vm.InstanceId)">Stop</button>
-                                      <button mat-stroked-button class="buttonstart" (click)="onStart(vm.InstanceId)">start</button>
-                                      <button mat-stroked-button class="buttonreboot" (click)="onReboot(vm.InstanceId)">Reboot</button>
-                                      <button mat-stroked-button class="buttonterminate"(click)="onTerminate(vm.id,vm.InstanceId)">Terminate</button>
+                                      <p style="color: rgb(199, 206, 106);">PrivateIP :{{vm.PrivateIpAddress}} </p>
+                                
+                                      <div *ngIf="vm.creator === userid">
+
+                                        <button mat-stroked-button class="buttonstop" (click)="onStop(vm.InstanceId)">Stop</button>
+                                        <button mat-stroked-button class="buttonstart" (click)="onStart(vm.InstanceId)">start</button>
+                                        <button mat-stroked-button class="buttonreboot" (click)="onReboot(vm.InstanceId)">Reboot</button>
+                                        <button mat-stroked-button class="buttonterminate"(click)="onTerminate(vm.id,vm.InstanceId)">Terminate</button>
+                                      </div>
+                                    
                                     </mat-expansion-panel>
                                     <mat-expansion-panel >
                                         <mat-expansion-panel-header>

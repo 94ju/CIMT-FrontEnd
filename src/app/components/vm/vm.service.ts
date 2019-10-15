@@ -20,7 +20,8 @@ export class Vmservice{
             storage:storage,
             securityGroup:securityGroup,
             InstanceId:null,
-            PrivateIpAddress:null
+            PrivateIpAddress:null,
+            creator:null
         }
         this.vms.push(vm);
         console.log(vm);
@@ -34,6 +35,8 @@ export class Vmservice{
         this.http.get<{message:string;vms:any}>('http://localhost:3000/api/vms/vmdata').
         pipe(map((vmData)=>{
             return vmData.vms.map(vm=>{
+                console.log("c_id "+vm.creator)
+                console.log("vm_id "+this.authService.getUserId())
                 return{
                     id:vm._id,
                     ami:vm.ami,
@@ -42,11 +45,13 @@ export class Vmservice{
                     securityGroup:vm.securityGroup,
                     storage:vm.storage,
                     InstanceId:vm.InstanceId,
-                    PrivateIpAddress:vm.PrivateIpAddress
+                    PrivateIpAddress:vm.PrivateIpAddress,
+                    creator:vm.creator
                 };
             });
         }))
         .subscribe(vmData=>{
+
             this.vms=vmData;
             this.vmUpdated.next([...this.vms])  
             console.log("vmd data wiht id"+this.vms)

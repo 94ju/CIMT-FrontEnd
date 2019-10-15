@@ -6,5 +6,6 @@ export class Vmdata{
     storage:string;
     securityGroup:string;
     InstanceId:string;
-    PrivateIpAddress:string
+    PrivateIpAddress:string;
+    creator:string
 }
