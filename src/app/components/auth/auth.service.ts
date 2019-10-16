@@ -47,7 +47,12 @@ export class AuthService{
                 this.token=token;
                 this.authStatusListener.next(true)
                 this.route.navigate(['header/login']);
-            })
+            },
+            (error)=>{
+                this.authStatusListener.next(false)
+            }
+            
+            )
 
     }
 
@@ -76,12 +81,18 @@ export class AuthService{
                 this.saveAuthData(token,expirationDate,this.userId,this.userName)
                 console.log(response)
                 this.route.navigate(['home/aws']);
-            })
+            },
+            (error)=>{
+                this.authStatusListener.next(false);
+                this.route.navigate(['header/login']);
+            }
+            
+            
+            )
     } 
     autoAuthUser(){
         const authInformation=this.getAuthData();
-        console.log("from auto auth"+authInformation.token)
-        console.log("from auto auth"+authInformation.expirationDate)
+        
         if (!authInformation) {
             return;
           }

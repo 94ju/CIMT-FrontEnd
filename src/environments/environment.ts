@@ -4,9 +4,10 @@
 
 export const environment = {
   production: false,
-  apiUrl:"http://localhost:3000/api"
+   apiUrl:"http://localhost:3000/api"
+  
 };
-
+// http://cimt-env.a2kempn2mx.us-east-1.elasticbeanstalk.com/
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
