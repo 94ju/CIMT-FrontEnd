@@ -14,13 +14,13 @@ export class Vmservice{
     private vmUpdated=new Subject<Vmdata[]>();
     constructor(private http:HttpClient,private authService:AuthService){}
 
-    vmCreate(ami:string,instanceType:string,numberOfInstances:string,storage:string,securityGroup:string){
+    vmCreate(ami:string,instanceType:string,keyname:string,tag:string,securityGroup:string){
         const vm:Vmdata={
             id:null,
             ami:ami,
             instanceType:instanceType,
-            numberOfInstances:numberOfInstances,
-            storage:storage,
+            keyname:keyname,
+            tag:tag,
             securityGroup:securityGroup,
             InstanceId:null,
             PrivateIpAddress:null,
@@ -44,9 +44,9 @@ export class Vmservice{
                     id:vm._id,
                     ami:vm.ami,
                     instanceType:vm.instanceType,
-                    numberOfInstances:vm.numberOfInstances,
+                    keyname:vm.keyname,
                     securityGroup:vm.securityGroup,
-                    storage:vm.storage,
+                    tag:vm.tag,
                     InstanceId:vm.InstanceId,
                     PrivateIpAddress:vm.PrivateIpAddress,
                     creator:vm.creator
