@@ -75,7 +75,7 @@ export class AuthService{
                 
                 this.saveAuthData(token,expirationDate,this.userId,this.userName)
                 console.log(response)
-                this.route.navigate(['home']);
+                this.route.navigate(['home/aws']);
             })
     } 
     autoAuthUser(){

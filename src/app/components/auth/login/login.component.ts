@@ -14,10 +14,10 @@ export class LoginComponent implements OnInit {
   islogedIN;
   ngOnInit() {
   }
-  login(){
-    this.route.navigate(['home'])
-    console.log("check")
-  }
+  // login(){
+  //   this.route.navigate(['home'])
+  //   console.log("check")
+  // }
   onLogin(form: NgForm) {
     if(form.invalid){
       return;
