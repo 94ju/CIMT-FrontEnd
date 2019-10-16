@@ -1,1 +1,83 @@
-<p>gcp works!</p>
+
+<div class="main-div">
+        
+        <mat-card class="vm-box" >
+                <mat-card-header>
+                        <mat-card-title style="color: rgb(18, 19, 19);   ">AWS VM launch</mat-card-title>
+                </mat-card-header>
+            <form [formGroup]="awsForm" (ngSubmit)="onSubmit()">
+                <!-- <mat-form-field>
+                    <input 
+                        matInput 
+                        formControlName='ami'
+                        style="color: beige"
+                        placeholder="Choose an Amazon Machine Image (AMI)">
+                        <mat-error *ngIf="!awsForm.get('ami').valid && awsForm.get('ami').touched"  >Please enter a valid ami.</mat-error>
+                </mat-form-field> -->
+                <mat-form-field>
+                    <mat-label>AMI</mat-label>
+                    <select matNativeControl required  formControlName='ami'>
+                      <option value="ami-0b69ea66ff7391e80">Amazon Linux 2 AMI (HVM), SSD Volume Type</option>
+                      <option value="ami-00eb20669e0990cb4">Amazon Linux AMI 2018.03.0 (HVM), SSD Volume Type</option>
+                      <option value=" ami-0c322300a1dd5dc79 ">Red Hat Enterprise Linux 8 (HVM), SSD Volume Type</option>
+                      <option value="ami-04b9e92b5572fa0d1">Ubuntu Server 18.04 LTS (HVM), SSD Volume Type</option>
+                    </select>
+                  </mat-form-field>
+                <!-- <mat-form-field>
+                    <input 
+                        matInput 
+                        formControlName='instanceType'
+                        placeholder="Choose an Instance Type">
+                        <mat-error *ngIf="!awsForm.get('instanceType').valid && awsForm.get('instanceType').touched"  >Please enter a valiD instance Type.</mat-error>
+                </mat-form-field> -->
+                <mat-form-field>
+                    <mat-label>Instance Type</mat-label>
+                    <select matNativeControl required  formControlName='instanceType'>
+                      <option value="t2.micro">t2.micro</option>
+                      <option value="t2.nano">t2.nano</option>
+                      <option value="t2.small">t2.small</option>
+                      <option value="t2.medium">t2.medium</option>
+                    </select>
+                  </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Key Name</mat-label>
+                    <select matNativeControl required  formControlName='keyname'>
+                      <option value="ec2api">ec2api</option>
+                      <option value="cimt">cimt</option>
+                    </select>
+                  </mat-form-field>
+                <!-- <mat-form-field>
+                    <input 
+                        matInput 
+                        formControlName='numberOfInctances'
+                        placeholder="Number of Instances">
+                        <mat-error *ngIf="!awsForm.get('numberOfInctances').valid && awsForm.get('numberOfInctances').touched"  >Please enter a valid number Of Instances.</mat-error>
+                </mat-form-field> -->
+                <mat-form-field>
+                    <input 
+                        matInput 
+                        formControlName='tag'
+                        placeholder="Add tag">
+                        <mat-error *ngIf="!awsForm.get('tag').valid && awsForm.get('tag').touched"  >Please enter a valid tag.</mat-error>
+                </mat-form-field>
+                <!-- <mat-form-field>
+                    <input 
+                        matInput 
+                        formControlName='securityGroup'
+                        placeholder="Configure Security group">
+                        <mat-error *ngIf="!awsForm.get('securityGroup').valid && awsForm.get('securityGroup').touched"  >Please enter a valid security Group.</mat-error>
+                </mat-form-field> -->
+                <mat-form-field>
+                    <mat-label>Security Group</mat-label>
+                    <select matNativeControl required  formControlName='securityGroup'>
+                      <option value="Default">Default</option>
+                     
+                    </select>
+                  </mat-form-field>
+                <br>
+                <button mat-stroked-button color="primary" class="btn-block" type="submit">Launch</button>
+            </form>
+        </mat-card>
+    </div>
+    
+    

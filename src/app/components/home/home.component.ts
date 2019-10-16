@@ -20,7 +20,9 @@ export class HomeComponent implements OnInit {
   public authStatusSub: Subscription;
   constructor(private authService:AuthService,private vmService:Vmservice) { }
   vms:Vmdata[]=[]
-  showComponent=true;
+  showAWSComponent=true;
+  showPricetableComponent=false;
+  showDashBoardComponent=false;
   ngOnInit() {
     console.log("This final"+this.userid);
     console.log("This final"+this.username)
@@ -64,11 +66,18 @@ export class HomeComponent implements OnInit {
   onStart(InstanceId:string){
     this.vmService.startVM(InstanceId)
   }
-  onChangeView(){
-    this.showComponent=false;
+  onChangeDasboard(){
+    this.showAWSComponent=false;
+    this.showDashBoardComponent=true;
   }
   onChangeAWS(){
-    this.showComponent=true
+    this.showAWSComponent=true
+    this.showDashBoardComponent=false
+  }
+  onPricetable(){
+    this.showAWSComponent=false;
+    this.showDashBoardComponent=false;
+    this.showPricetableComponent=true;
   }
 
 }

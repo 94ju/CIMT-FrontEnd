@@ -1,58 +1,91 @@
 
+<mat-grid-list cols="12"  rowHeight="80px" class="grid">
+            <mat-grid-tile
+            [colspan]="2"
+            [rowspan]="10"
+            style="background-color: rgb(77, 80, 80)">
+            <div class="dashboard" >
+                <mat-accordion multi="true" >
+                        <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    Amozon
+                                </mat-expansion-panel-header>
+                                <!-- <a mat-button  (click)="onAWS()")>AWS</a> -->
+                        </mat-expansion-panel>
+                </mat-accordion>
+                <mat-accordion multi="true" >
+                        <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    GCP
+                                </mat-expansion-panel-header>
+                                <p>AWS</p>
+                        </mat-expansion-panel>
+                </mat-accordion>
+                <mat-accordion multi="true" >
+                        <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    Azure
+                                </mat-expansion-panel-header>
+                                <p>AWS</p>
+                        </mat-expansion-panel>
+                </mat-accordion>
+                <mat-accordion multi="true" >
+                        <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    Alibaba
+                                </mat-expansion-panel-header>
+                                <p>AWS</p>
+                        </mat-expansion-panel>
+                </mat-accordion>
+        </div>
+          
+          </mat-grid-tile>
+            <mat-grid-tile
+            [colspan]="10"
+            [rowspan]="10"
+            style="background-color: rgb(77, 80, 80)">
+              <div class="ptable">
+                  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-<button (click)="onGetData()">click</button>
-
-<!-- <mat-table>
-    <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let element"> {{element.Catergory}} </td>
-      </ng-container>
-</mat-table>  -->
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-  
-    <!-- Position Column -->
-    <!-- <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef> Catergory </th>
-      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-    </ng-container> -->
-  
-    <!-- Name Column -->
-    <ng-container matColumnDef="category">
-      <th mat-header-cell *matHeaderCellDef> Category </th>
-      <td mat-cell *matCellDef="let element"> {{element.category}} </td>
-    </ng-container>
-  
-    <!-- Weight Column -->
-    <ng-container matColumnDef="cpu">
-      <th mat-header-cell *matHeaderCellDef> CPUS </th>
-      <td mat-cell *matCellDef="let element"> {{element.cpu}} cpus </td>
-    </ng-container>
-  
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="gpusPerVm">
-      <th mat-header-cell *matHeaderCellDef> GPUs </th>
-      <td mat-cell *matCellDef="let element"> {{element.gpusPerVm}} GPUs </td>
-    </ng-container>
-     <ng-container matColumnDef="memPerVm">
-        <th mat-header-cell *matHeaderCellDef> Network </th>
-        <td mat-cell *matCellDef="let element"> {{element.memPerVm}} </td>
-    </ng-container> 
-    <ng-container matColumnDef="ntwPerfCategory">
-        <th mat-header-cell *matHeaderCellDef> On-Demand-Price(Linux) </th>
-        <td mat-cell *matCellDef="let element"> {{element.ntwPerfCategory}} </td>
-    </ng-container>
-    <ng-container matColumnDef="ntwPerf">
-        <th mat-header-cell *matHeaderCellDef> On-Demand-Price(Linux) </th>
-        <td mat-cell *matCellDef="let element"> {{element.ntwPerf}} </td>
-    </ng-container>
-    
-    <ng-container matColumnDef="onDemandPrice">
-        <th mat-header-cell *matHeaderCellDef>onDemandPrice </th>
-        <td mat-cell *matCellDef="let element"> {{element.onDemandPrice}} $ </td>
-    </ng-container> 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+                      <!-- Name Column -->
+                      <ng-container matColumnDef="category">
+                        <th mat-header-cell *matHeaderCellDef> Category </th>
+                        <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+                      </ng-container>
+                    
+                      <!-- Weight Column -->
+                      <ng-container matColumnDef="cpu">
+                        <th mat-header-cell *matHeaderCellDef> CPUS </th>
+                        <td mat-cell *matCellDef="let element"> {{element.cpu}} cpus </td>
+                      </ng-container>
+                    
+                      <!-- Symbol Column -->
+                      <ng-container matColumnDef="gpusPerVm">
+                        <th mat-header-cell *matHeaderCellDef> GPUs </th>
+                        <td mat-cell *matCellDef="let element"> {{element.gpusPerVm}} GPUs </td>
+                      </ng-container>
+                      <ng-container matColumnDef="memPerVm">
+                          <th mat-header-cell *matHeaderCellDef> Network </th>
+                          <td mat-cell *matCellDef="let element"> {{element.memPerVm}} </td>
+                      </ng-container> 
+                      <ng-container matColumnDef="ntwPerfCategory">
+                          <th mat-header-cell *matHeaderCellDef> On-Demand-Price(Linux) </th>
+                          <td mat-cell *matCellDef="let element"> {{element.ntwPerfCategory}} </td>
+                      </ng-container>
+                      <ng-container matColumnDef="ntwPerf">
+                          <th mat-header-cell *matHeaderCellDef> On-Demand-Price(Linux) </th>
+                          <td mat-cell *matCellDef="let element"> {{element.ntwPerf}} </td>
+                      </ng-container>
+                      
+                      <ng-container matColumnDef="onDemandPrice">
+                          <th mat-header-cell *matHeaderCellDef>onDemandPrice </th>
+                          <td mat-cell *matCellDef="let element"> {{element.onDemandPrice}} $ </td>
+                      </ng-container> 
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+              </div>
+           
+          </mat-grid-tile>
+            
+</mat-grid-list>

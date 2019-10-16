@@ -82,4 +82,8 @@ export class PricetableComponent implements OnInit {
     });
   }
 
+  onAWS(){
+    console.log("check table")
+  }
+
 }

@@ -2,27 +2,29 @@
 <!-- <br><br><br><br><br> -->
 
 <mat-grid-list cols="12"  rowHeight="70px" >
+              
                 <mat-grid-tile
                   [colspan]="12"
                   [rowspan]="1"
-                  style="background-color:rgb(7, 243, 243)"
+                  style="background-color:rgb(77, 80, 80)"
                   >
                             
                             <mat-toolbar  class="app-header" >
                                 <div>CIMT | {{username}}</div> 
                                 <span class="nav-tool-items">
                                     <!-- <button mat-button  (click)="onChangeView()">DashBoard</button> -->
-                                    <button mat-button routerLink="home" routerLinkActive="active" (click)="onChangeView()">Comparison</button>
-                                    <button mat-button routerLink="home" routerLinkActive="active" (click)="onChangeView()">DashBoard</button>
+                                    <button mat-button routerLink="home" routerLinkActive="active" (click)="onPricetable()">VM Price List</button>
+                                    <button mat-button routerLink="home" routerLinkActive="active" (click)="onChangeDasboard()">DashBoard</button>
                                     <button mat-button routerLink="aws" routerLinkActive="active" (click)="onChangeAWS()">AWS</button>
                                     <a mat-button  routerLink="gcp" routerLinkActive="active">Azure</a>
                                     <a mat-button  routerLink="azure" routerLinkActive="active">GCP</a>
-                                    <a mat-button  routerLink="home" routerLinkActive="active">Home</a>
+                                    <!-- <a mat-button  routerLink="home" routerLinkActive="active">Home</a> -->
                                     <button mat-button (click)="onLogOut()" >logout</button>
                                 </span>
                             </mat-toolbar>
                 </mat-grid-tile>
-                <div *ngIf="showComponent">
+             
+                <div *ngIf="showAWSComponent && !showDashBoardComponent">
                 <mat-grid-tile
                     [colspan]="3"
                     [rowspan]="10"
@@ -92,55 +94,13 @@
                 <mat-grid-tile-header>VM Cost: $124</mat-grid-tile-header>
               </mat-grid-tile>
             </div>
-            <div *ngIf="!showComponent">
+            <div *ngIf="!showAWSComponent && showDashBoardComponent">
               <app-dashboard></app-dashboard>
             </div>
+            <div *ngIf="!showAWSComponent && !showDashBoardComponent && showPricetableComponent" >
+              <app-pricetable></app-pricetable>
+            </div>
 </mat-grid-list>
-<!-- <div  class="pannelc">
-  <mat-accordion multi="true">
-    <mat-expansion-panel >
-      <mat-expansion-panel-header>
-        Virtual machines | AWS
-      </mat-expansion-panel-header>
-      <p>AWS</p>
-    </mat-expansion-panel>
-    <mat-expansion-panel >
-      <mat-expansion-panel-header>
-        Virtual machines | GCP
-      </mat-expansion-panel-header>
-      <p>AWS</p>
-    </mat-expansion-panel>
-    <mat-expansion-panel >
-      <mat-expansion-panel-header>
-        Virtual machines | Azure
-      </mat-expansion-panel-header>
-      <p>AWS</p>
-    </mat-expansion-panel>
-  </mat-accordion>
-  <mat-accordion multi="true">
-    <mat-expansion-panel >
-      <mat-expansion-panel-header>
-        S3 Buckets | AWS
-      </mat-expansion-panel-header>
-      <p>AWS</p>
-    </mat-expansion-panel>
-    <mat-expansion-panel >
-      <mat-expansion-panel-header>
-        Cloud Storage | GCP
-      </mat-expansion-panel-header>
-      <p>AWS</p>
-    </mat-expansion-panel>
-    <mat-expansion-panel >
-      <mat-expansion-panel-header>
-        Blob Storage | Azure
-      </mat-expansion-panel-header>
-      <p>AWS</p>
-    </mat-expansion-panel>
-  </mat-accordion>
-</div>
-<div class="pannel2">
- 
-</div>
-<app-charts></app-charts>  
-  
-<router-outlet></router-outlet> -->
+
+      
+
