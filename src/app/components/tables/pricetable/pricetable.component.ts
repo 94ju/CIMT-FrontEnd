@@ -36,8 +36,8 @@ export class PricetableComponent implements OnInit {
  
    datasource1;
   // displayedColumns: string[] = ['Catergory', 'Machine Type', 'CPUs', 'Memory','Network','On-Demand-Price(Linux)','AVG.Spot Price'];
-   onGetData(){
-      this.priceService.getPrices()
+   onGetData(comtype:string){
+      this.priceService.getPrices(comtype)
       .pipe(map((pricedata)=>{
           console.log(pricedata)
           return pricedata.products.map(price=>{
@@ -54,13 +54,12 @@ export class PricetableComponent implements OnInit {
           })
       })).
       subscribe(data=>{
-        this.dataSource=data
-
         console.log(data);
+        this.dataSource=data
       });
    }
   ngOnInit() {
-    this.priceService.getPrices()
+    this.priceService.getPrices('compute')
     .pipe(map((pricedata)=>{
         console.log(pricedata)
         return pricedata.products.map(price=>{
@@ -84,6 +83,30 @@ export class PricetableComponent implements OnInit {
 
   onAWS(){
     console.log("check table")
+  }
+  compute(){
+    this.onGetData('compute')
+    console.log("Compute>>>")
+  }
+  eks(){
+    this.onGetData('eks')
+    console.log("eks")
+  }
+  pke(){
+    this.onGetData('pke')
+    console.log("eks")
+  }
+  gcloud(){
+    this.onGetData('gcloud')
+  }
+  gke(){
+    this.onGetData('gke')
+  }
+  acloud(){
+    this.onGetData('acloud')
+  }
+  ake(){
+    this.onGetData('acloud')
   }
 
 }
