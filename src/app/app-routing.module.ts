@@ -16,7 +16,7 @@ const routes:Routes =[
     {
         path:'', 
         pathMatch:'full',
-        redirectTo:'header'
+        redirectTo:'header/login'
     },
     {
         path:'header',

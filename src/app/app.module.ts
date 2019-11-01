@@ -20,6 +20,8 @@ import { HeaderComponent } from './components/header/header.component'
 import { AuthInterceptor } from './components/auth/auth.interceptor';
 import { PricetableComponent } from './components/tables/pricetable/pricetable.component';
 import { ChartsComponent } from './components/charts/charts.component';
+import { ErrorInterceptor } from './error-interceptor';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { ChartsComponent } from './components/charts/charts.component';
     DashboardComponent,
     HeaderComponent,
     PricetableComponent,
-    ChartsComponent
+    ChartsComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -47,9 +50,11 @@ import { ChartsComponent } from './components/charts/charts.component';
     HttpClientModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  entryComponents: [ErrorComponent]
 })
 export class AppModule { }

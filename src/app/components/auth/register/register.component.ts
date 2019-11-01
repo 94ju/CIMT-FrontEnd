@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit,OnDestroy {
   Roles: any = ['Admin', 'Developer'];
+  private authServiceSub:Subscription;
   constructor(private authservice:AuthService) { }
   onRegister(form:NgForm){
     console.log("check")
@@ -21,6 +23,9 @@ export class RegisterComponent implements OnInit {
     console.log("check")
   }
   ngOnInit() {
+    this.authServiceSub=this.authservice.getAuthStatusListener().subscribe();
   }
-
+  ngOnDestroy(){
+    this.authServiceSub.unsubscribe();
+  }
 }

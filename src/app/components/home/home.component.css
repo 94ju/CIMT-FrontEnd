@@ -1,11 +1,54 @@
 .pannelc{
-    width:20%;
-    position: absolute;
+    /* width:20%; */
+    /* position: absolute; */
+    /* width:100%;
+    left: 1%;
+    margin-left: 0% */
 }
 .pannel2{
-    position: absolute;
-    top:35%;
-    width:20%
+    /* Sposition: absolute; */
+    /* top:35%; */
+    width:100%
     /* right: 0px;
     width: 300px; */
 }
+
+.pannelaws{
+    position: absolute;
+    width: 100%;
+    height: 100%; 
+}
+
+.router{
+    position: absolute;
+    /* margin-left: 10%; */
+    height: 100%;
+    width:80%;
+}
+.mat-expansion-panel{
+    color:rgb(7, 243, 243);
+    background-color:rgb(59, 59, 59);
+}
+.app-header{
+    color:rgb(7, 243, 243);
+    background-color:rgb(59, 59, 59);
+}
+.buttonstop{
+    background-color:rgb(182, 68, 97);
+    margin: 2%;
+}
+.buttonreboot{
+    background-color:rgb(53, 109, 2);
+    margin: 2%;
+}
+.buttonterminate{
+    background-color:rgb(104, 28, 28);
+    margin: 2%;
+}
+.buttonstart{
+    background-color:rgb(25, 73, 25);
+    margin: 2%;
+}
+/* .price{
+    margin-top:10%
+} */

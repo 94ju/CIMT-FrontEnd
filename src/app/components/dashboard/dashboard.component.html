@@ -1,35 +1,49 @@
-<!-- <mat-grid-list cols="2" rowHeight="2:1" class="grid">
-        <mat-grid-tile style="background-color: cadetblue">
-                        <mat-grid-list cols="2" rowHeight="2:1" >
-                                        <mat-grid-tile style="background-color: cadetblue">
-                                        <mat-grid-tile style="background-color: rgb(217, 234, 235)"></mat-grid-tile>
-                                        <mat-grid-tile style="background-color: rgb(8, 127, 131)"></mat-grid-tile>
-                                        <mat-grid-tile style="background-color: rgb(122, 228, 231)"></mat-grid-tile>
-                        </mat-grid-list>
-        </mat-grid-tile>
-        <mat-grid-tile style="background-color: rgb(217, 234, 235)"></mat-grid-tile>
-        <mat-grid-tile style="background-color: rgb(8, 127, 131)"></mat-grid-tile>
-        <mat-grid-tile style="background-color: rgb(122, 228, 231)"></mat-grid-tile>
-</mat-grid-list> -->
-<!-- <mat-grid-list cols="3" >
-                <mat-grid-tile
-                    *ngFor="let tile of tiles"
-                    [colspan]="tile.cols"
-                    [rowspan]="tile.rows"
-                    [style.background]="tile.color">
-                  {{tile.text}}
-                </mat-grid-tile>
-</mat-grid-list> -->
-<mat-grid-list cols="12"  rowHeight="80px">
-                <mat-grid-tile
+
+<mat-grid-list cols="12"  rowHeight="80px" class="grid">
+                <!-- <mat-grid-tile
                 [colspan]="12"
                 [rowspan]="1"
                 style="background-color: rgb(217, 234, 235)">
-            </mat-grid-tile>
+            </mat-grid-tile> -->
                 <mat-grid-tile
                     [colspan]="2"
                     [rowspan]="8"
-                    style="background-color: rgb(217, 234, 235)">
+                    style="background-color: rgb(77, 80, 80)">
+                    <div class="dashboard" >
+                            <mat-accordion multi="true" >
+                                    <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                Cost Explorer
+                                            </mat-expansion-panel-header>
+                                            <p>AWS</p>
+                                    </mat-expansion-panel>
+                            </mat-accordion>
+                            <mat-accordion multi="true" >
+                                    <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                Budget Report
+                                            </mat-expansion-panel-header>
+                                            <p>AWS</p>
+                                    </mat-expansion-panel>
+                            </mat-accordion>
+                            <mat-accordion multi="true" >
+                                    <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                Billings
+                                            </mat-expansion-panel-header>
+                                            <p>AWS</p>
+                                    </mat-expansion-panel>
+                            </mat-accordion>
+                            <mat-accordion multi="true" >
+                                    <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                Payment Methods
+                                            </mat-expansion-panel-header>
+                                            <p>AWS</p>
+                                    </mat-expansion-panel>
+                            </mat-accordion>
+                    </div>
+                    
                 </mat-grid-tile>
                 <mat-grid-tile
                     [colspan]="5"

@@ -15,9 +15,10 @@ export class AppComponent implements OnInit{
   }
   islogedin(){
     // console.log("app com is loged "+this.authService.islogedin)
-    return this.authService.islogedin;
+    // return this.authService.islogedin;
   }
   ngOnInit(){
+    console.log("app compnent")
     this.authService.autoAuthUser();
   }
 

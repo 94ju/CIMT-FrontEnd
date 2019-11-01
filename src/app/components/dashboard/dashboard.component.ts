@@ -12,6 +12,7 @@ export interface Tile {
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+ // In this componenet I have added some dummy data this part is for future Implementations
   tiles: Tile[] = [
     {text: 'One', cols: 1, rows: 2, color: 'lightblue'},
     {text: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
