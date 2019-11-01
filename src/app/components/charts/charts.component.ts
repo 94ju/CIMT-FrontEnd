@@ -6,6 +6,7 @@ import {Chart} from 'chart.js';
   styleUrls: ['./charts.component.css']
 })
 export class ChartsComponent implements OnInit {
+   // In this componenet I have added some dummy data this part is for future Implementations
   name = 'Janiya';
   PieChart=[];
   BarChart=[];
